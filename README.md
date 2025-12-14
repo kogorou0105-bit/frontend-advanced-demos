@@ -13,6 +13,10 @@
 
 项目采用**配置驱动（Config-driven）**的架构设计，实现了路由的自动化生成与组件的按需加载，为后续扩展提供了良好的工程化基础。
 
+## 🔗 Live Demo / 在线演示
+
+**[👉 Live](https://kogorou0105-bit.github.io/frontend-advanced-demos/)**
+
 ## 🌟 核心亮点
 
 - **工程化架构**：通过 `demos/index.js` 配置表统一管理 Demo 元数据，自动生成路由，无需手动编写重复的 Route 代码。
