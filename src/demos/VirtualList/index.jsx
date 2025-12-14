@@ -12,7 +12,7 @@ const VirtualList = () => {
   const [startIndex, setStartIndex] = useState(0);
 
   // 可视区域能容纳的数量 (假设容器高度 500px, 500/50 = 10，多渲染几个防止空白)
-  const VISIBLE_COUNT = 12;
+  const VISIBLE_COUNT = 15;
 
   const containerHeight = 500;
 
