@@ -14,4 +14,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"), // 把 @ 映射到 src 目录
     },
   },
+  base: "/frontend-advanced-demos/",
 });

@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # 监听 main 分支的 push 事件
+
+permissions:
+  contents: write # 允许 Action 修改仓库内容（为了发布）
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1.这也是面试考点：检出代码
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      # 2. 安装 Node.js 环境
+      - name: Setup Node.js ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm" # 开启缓存，加快构建速度
+
+      # 3. 安装依赖 (使用 ci 命令更纯净)
+      - name: Install dependencies 🔧
+        run: npm ci
+
+      # 4. 打包构建
+      - name: Build 🏗️
+        run: npm run build
+
+      # 5. 部署到 gh-pages 分支
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist # Vite 默认打包输出目录是 dist
+          branch: gh-pages # 把构建结果推送到 gh-pages 分支
