@@ -7,6 +7,7 @@ const LazyImage = lazy(() => import("./LazyImage/index.jsx"));
 const Carousel = lazy(() => import("./Carousel/index.jsx"));
 const Autocomplete = lazy(() => import("./Autocomplete/index.jsx"));
 const TreeView = lazy(() => import("./TreeView/index.jsx"));
+const DragSort = lazy(() => import("./DragSort/index.jsx"));
 
 export const demos = [
   {
@@ -49,5 +50,12 @@ export const demos = [
     description:
       "基于递归组件渲染多层级嵌套数据（类似 VSCode 侧边栏），实现无限层级折叠/展开，独立管理节点状态。",
     component: TreeView,
+  },
+  {
+    path: "drag-sort",
+    title: "原生拖拽排序",
+    description:
+      "基于 HTML5 Drag & Drop API 实现，处理 onDragEnter 实时交换数组顺序，无第三方库依赖。",
+    component: DragSort,
   },
 ];

@@ -25,14 +25,15 @@
 
 ## 🧩 实验项目 (Demos)
 
-| 项目名称                       | 核心技术点                                    | 难点解析                                                                                                                 |
-| :----------------------------- | :-------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
-| **VirtualList**定高虚拟列表    | `Scroll Event` `Math` `Transform`             | 处理 10 万+ 数据渲染瓶颈。通过计算可视区索引，只渲染屏幕可见 DOM，利用 `padding` 撑开容器高度，保持原生滚动体验。        |
-| **InfiniteScroll**触底无限加载 | `IntersectionObserver` `Callback Ref`         | 摒弃低性能的 scroll 监听。利用 IO API 监听底部哨兵元素，解决 `useEffect` 闭包陷阱，实现高性能分页加载。                  |
-| **Autocomplete**防抖搜索联想   | `Debounce` `AbortController` `Race Condition` | 手写 `useDebounce` 优化请求频次。利用 `AbortController` 取消未完成请求以解决**竞态问题**，并用正则实现关键词高亮。       |
-| **Carousel**无缝轮播图         | `TransitionEnd` `Clone Node` `Throttling`     | 通过首尾克隆节点实现视觉无缝切换。核心在于利用**节流锁**解决快速点击导致的白屏问题，以及定时器的自动管理。               |
-| **LazyImage**图片懒加载        | `IntersectionObserver` `Double State`         | **双重状态管理**（InView/Loaded）。利用骨架屏占位防止 **CLS (布局偏移)**，支持图片加载完成后的优雅渐变显示。             |
-| **TreeView**递归文件树         | `Recursion` `DFS` `Component Self-Call`       | 组件**递归调用**自身以渲染无限层级数据（类似 VS Code 侧边栏）。独立管理每个节点的展开/折叠状态，数据结构转化的经典案例。 |
+| 项目名称                       | 核心技术点                                    | 难点解析                                                                                                                                       |
+| :----------------------------- | :-------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| **VirtualList**定高虚拟列表    | `Scroll Event` `Math` `Transform`             | 处理 10 万+ 数据渲染瓶颈。通过计算可视区索引，只渲染屏幕可见 DOM，利用 `padding` 撑开容器高度，保持原生滚动体验。                              |
+| **InfiniteScroll**触底无限加载 | `IntersectionObserver` `Callback Ref`         | 摒弃低性能的 scroll 监听。利用 IO API 监听底部哨兵元素，解决 `useEffect` 闭包陷阱，实现高性能分页加载。                                        |
+| **Autocomplete**防抖搜索联想   | `Debounce` `AbortController` `Race Condition` | 手写 `useDebounce` 优化请求频次。利用 `AbortController` 取消未完成请求以解决**竞态问题**，并用正则实现关键词高亮。                             |
+| **Carousel**无缝轮播图         | `TransitionEnd` `Clone Node` `Throttling`     | 通过首尾克隆节点实现视觉无缝切换。核心在于利用**节流锁**解决快速点击导致的白屏问题，以及定时器的自动管理。                                     |
+| **LazyImage**图片懒加载        | `IntersectionObserver` `Double State`         | **双重状态管理**（InView/Loaded）。利用骨架屏占位防止 **CLS (布局偏移)**，支持图片加载完成后的优雅渐变显示。                                   |
+| **TreeView**递归文件树         | `Recursion` `DFS` `Component Self-Call`       | 组件**递归调用**自身以渲染无限层级数据（类似 VS Code 侧边栏）。独立管理每个节点的展开/折叠状态，数据结构转化的经典案例。                       |
+| **DragSort**原生拖拽排序       | `Drag API` `useRef` `Real-time Swap`          | 摒弃第三方库，手写原生拖拽逻辑。难点在于处理 `dragOver` 高频事件中的**实时数据交换**，利用 `useRef` 记录索引避免闭包陷阱，实现流畅的视觉反馈。 |
 
 ## 📂 目录结构
 
