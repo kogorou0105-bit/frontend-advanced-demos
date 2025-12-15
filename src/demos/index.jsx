@@ -8,54 +8,55 @@ const Carousel = lazy(() => import("./Carousel/index.jsx"));
 const Autocomplete = lazy(() => import("./Autocomplete/index.jsx"));
 const TreeView = lazy(() => import("./TreeView/index.jsx"));
 const DragSort = lazy(() => import("./DragSort/index.jsx"));
+const VariableList = lazy(() => import("./VariableList/index.jsx"));
 
 export const demos = [
   {
     path: "virtual-list",
-    title: "定高虚拟列表",
-    description: "处理十万级数据渲染，只渲染可视区域 DOM，包含滚动计算逻辑。",
+    title: "demos.virtualList.title",
+    description: "demos.virtualList.description",
     component: VirtualList,
   },
   {
+    path: "variable-list",
+    title: "demos.variableList.title",
+    description: "demos.variableList.description",
+    component: VariableList,
+  },
+  {
     path: "infinite-scroll",
-    title: "触底无限加载",
-    description:
-      "基于 Intersection Observer API 实现高性能翻页，避免 scroll 事件监听，包含 Loading 状态与数据边界处理。",
+    title: "demos.infiniteScroll.title",
+    description: "demos.infiniteScroll.description",
     component: InfiniteScroll,
   },
   {
     path: "lazy-image",
-    title: "图片懒加载与预加载",
-    description:
-      "自定义 Hook 实现图片进入视口才加载，支持占位图(Placeholder)到原图的平滑模糊过渡效果。",
+    title: "demos.lazyImage.title",
+    description: "demos.lazyImage.description",
     component: LazyImage,
   },
   {
     path: "carousel",
-    title: "无缝轮播图",
-    description:
-      "手写轮播组件，支持自动播放、手动切换、以及首尾相接的无缝过渡动画逻辑。",
+    title: "demos.carousel.title",
+    description: "demos.carousel.description",
     component: Carousel,
   },
   {
     path: "autocomplete",
-    title: "防抖搜索联想",
-    description:
-      "实现带防抖功能的搜索输入框，处理网络请求竞态问题(Race Condition)，并支持关键词高亮显示。",
+    title: "demos.autocomplete.title",
+    description: "demos.autocomplete.description",
     component: Autocomplete,
   },
   {
     path: "tree-view",
-    title: "递归文件树",
-    description:
-      "基于递归组件渲染多层级嵌套数据（类似 VSCode 侧边栏），实现无限层级折叠/展开，独立管理节点状态。",
+    title: "demos.treeView.title",
+    description: "demos.treeView.description",
     component: TreeView,
   },
   {
     path: "drag-sort",
-    title: "原生拖拽排序",
-    description:
-      "基于 HTML5 Drag & Drop API 实现，处理 onDragEnter 实时交换数组顺序，无第三方库依赖。",
+    title: "demos.dragSort.title",
+    description: "demos.dragSort.description",
     component: DragSort,
   },
 ];

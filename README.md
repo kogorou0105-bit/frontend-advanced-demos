@@ -25,15 +25,32 @@
 
 ## 🧩 实验项目 (Demos)
 
-| 项目名称                       | 核心技术点                                    | 难点解析                                                                                                                                       |
-| :----------------------------- | :-------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
-| **VirtualList**定高虚拟列表    | `Scroll Event` `Math` `Transform`             | 处理 10 万+ 数据渲染瓶颈。通过计算可视区索引，只渲染屏幕可见 DOM，利用 `padding` 撑开容器高度，保持原生滚动体验。                              |
-| **InfiniteScroll**触底无限加载 | `IntersectionObserver` `Callback Ref`         | 摒弃低性能的 scroll 监听。利用 IO API 监听底部哨兵元素，解决 `useEffect` 闭包陷阱，实现高性能分页加载。                                        |
-| **Autocomplete**防抖搜索联想   | `Debounce` `AbortController` `Race Condition` | 手写 `useDebounce` 优化请求频次。利用 `AbortController` 取消未完成请求以解决**竞态问题**，并用正则实现关键词高亮。                             |
-| **Carousel**无缝轮播图         | `TransitionEnd` `Clone Node` `Throttling`     | 通过首尾克隆节点实现视觉无缝切换。核心在于利用**节流锁**解决快速点击导致的白屏问题，以及定时器的自动管理。                                     |
-| **LazyImage**图片懒加载        | `IntersectionObserver` `Double State`         | **双重状态管理**（InView/Loaded）。利用骨架屏占位防止 **CLS (布局偏移)**，支持图片加载完成后的优雅渐变显示。                                   |
-| **TreeView**递归文件树         | `Recursion` `DFS` `Component Self-Call`       | 组件**递归调用**自身以渲染无限层级数据（类似 VS Code 侧边栏）。独立管理每个节点的展开/折叠状态，数据结构转化的经典案例。                       |
-| **DragSort**原生拖拽排序       | `Drag API` `useRef` `Real-time Swap`          | 摒弃第三方库，手写原生拖拽逻辑。难点在于处理 `dragOver` 高频事件中的**实时数据交换**，利用 `useRef` 记录索引避免闭包陷阱，实现流畅的视觉反馈。 |
+### 1. 虚拟滚动系列 (Virtual Scrolling)
+
+- **Fixed Height Virtual List (定高虚拟列表)**
+  - 支持十万级数据渲染，只渲染可视区域 DOM。
+  - **New**: 新增多种滚动动画策略与控制台日志面板。
+- **Variable Height Virtual List (不定高虚拟列表)**
+  - 进阶难点：处理高度不确定的列表项。
+  - 核心技术：二分查找 (Binary Search) + 动态高度测量 (Dynamic Measurement) + 滚动位置修正。
+
+### 2. 交互与性能 (Interaction & Performance)
+
+- **Infinite Scroll (触底无限加载)**
+  - 基于 `Intersection Observer API` 实现的高性能翻页，告别 scroll 事件监听。
+- **Lazy Load Image (图片懒加载)**
+  - 自定义 Hook 实现图片进入视口加载，支持 "Blur-up" 模糊占位过渡效果。
+- **Debounced Autocomplete (防抖搜索)**
+  - 处理网络请求竞态问题 (Race Condition)，支持关键词高亮。
+
+### 3. 组件实现 (Component Implementation)
+
+- **Seamless Carousel (无缝轮播图)**
+  - 手写实现首尾相接的无缝循环逻辑 (Clone Node 方案)。
+- **Recursive Tree View (递归文件树)**
+  - 类似 VSCode 侧边栏的无限层级递归组件，独立管理节点状态。
+- **Native Drag Sort (原生拖拽排序)**
+  - 抛弃 dnd-kit，基于 HTML5 Drag API 实现列表实时交换排序。
 
 ## 📂 目录结构
 
@@ -85,6 +102,13 @@ frontend-lab/
    ```bash
    npm run build
    ```
+
+## ✨ 最新更新 / Recent Updates
+
+- **🎨 Global Dark Mode (Tailwind v4)**:
+  完全适配 Tailwind CSS v4 的暗黑模式，内置 `ThemeContext` 与持久化状态管理，支持一键切换。
+- **🌐 Internationalization (i18n)**:
+  集成 `react-i18next`，支持中/英双语无缝切换，所有 Demo 文本均已提取为翻译键值。
 
 ## 🤝 如何贡献 / 添加新 Demo
 

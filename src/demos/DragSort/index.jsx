@@ -62,7 +62,7 @@ export default function DragSort() {
 
   return (
     <div className="max-w-md mx-auto p-6 min-h-screen">
-      <h1 className="text-2xl font-bold mb-2 text-gray-800">原生拖拽排序</h1>
+      <h1 className="text-2xl font-bold mb-2">原生拖拽排序</h1>
       <p className="text-gray-500 text-sm mb-6">
         抛弃 dnd-kit，手写 HTML5 Drag API。实现列表项的实时交换与状态同步。
       </p>
@@ -98,7 +98,7 @@ export default function DragSort() {
         ))}
       </div>
 
-      <div className="mt-8 p-4 bg-slate-900 rounded-lg shadow-inner">
+      <div className="mt-8 p-4 bg-slate-900 dark:bg-slate-100 rounded-lg shadow-inner">
         <h4 className="text-xs font-bold text-slate-400 mb-2 uppercase">
           Real-time State
         </h4>

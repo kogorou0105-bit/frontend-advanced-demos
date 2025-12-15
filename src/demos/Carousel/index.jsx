@@ -90,7 +90,7 @@ export default function Carousel() {
 
   return (
     <div className="max-w-2xl mx-auto p-6 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">无缝轮播图 Demo</h1>
+      <h1 className="text-3xl font-bold mb-6">无缝轮播图 Demo</h1>
 
       {/* 轮播容器 */}
       <div

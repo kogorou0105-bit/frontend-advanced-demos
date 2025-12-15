@@ -1,1 +1,14 @@
 @import "tailwindcss";
+/* 关键：自定义 dark 变体，使其响应 .dark 类名 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 可以在这里预设一些全局样式的深色适配 */
+@layer base {
+  body {
+    @apply bg-white text-gray-900 transition-colors duration-300;
+  }
+  /* 当 html 有 .dark 类时，应用这些样式 */
+  .dark body {
+    @apply bg-slate-900 text-gray-100;
+  }
+}
