@@ -21,6 +21,7 @@ export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(1);
   // 控制是否开启过渡动画（瞬移重置时需要关闭动画）
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const isTransitioningRef = useRef(false);
   // 暂停自动播放的状态
   const [isPaused, setIsPaused] = useState(false);
 
@@ -31,16 +32,18 @@ export default function Carousel() {
   // 核心逻辑 1: 切换轮播
   // ==========================================
   const nextSlide = useCallback(() => {
-    if (isTransitioning) return;
+    if (isTransitioningRef.current) return;
     setIsTransitioning(true);
+    isTransitioningRef.current = true;
     setCurrentIndex((prev) => prev + 1);
-  }, [isTransitioning]);
+  }, []);
 
   const prevSlide = useCallback(() => {
-    if (isTransitioning) return;
+    if (isTransitioningRef.current) return;
+    isTransitioningRef.current = true;
     setIsTransitioning(true);
     setCurrentIndex((prev) => prev - 1);
-  }, [isTransitioning]);
+  }, []);
 
   // ==========================================
   // 核心逻辑 2: 自动播放与暂停
@@ -50,13 +53,6 @@ export default function Carousel() {
     if (isPaused) return;
 
     timerRef.current = setInterval(() => {
-      // 在 setInterval 闭包中，我们不能直接读取外部的 state (isTransitioning)
-      // 但因为我们每 3 秒触发一次，且动画只有 500ms，通常不会冲突。
-      // 为了绝对安全，可以通过 Ref 来保存 transitioning 状态，
-      // 或者简简单单地调用 nextSlide（因为它内部已经有 check 了，虽然在 interval 里拿到的 state 可能是旧的）
-
-      // *面试满分写法*：这里最好只是触发，真正的锁逻辑在 nextSlide 里。
-      // 由于 nextSlide 加了 dependency，useEffect 会重置，这没问题。
       nextSlide();
     }, 3000); // 3秒切换
 
@@ -72,7 +68,7 @@ export default function Carousel() {
   const handleTransitionEnd = () => {
     // 动画结束后，检查是否到了边界
     setIsTransitioning(false); // 先关闭动画
-
+    isTransitioningRef.current = false;
     if (currentIndex === totalSlides - 1) {
       // 如果到了最后一张 (Clone 1)，瞬间跳回真实的 Index 1
       setCurrentIndex(1);

@@ -9,6 +9,8 @@ const Autocomplete = lazy(() => import("./Autocomplete/index.jsx"));
 const TreeView = lazy(() => import("./TreeView/index.jsx"));
 const DragSort = lazy(() => import("./DragSort/index.jsx"));
 const VariableList = lazy(() => import("./VariableList/index.jsx"));
+const RichTextEditor = lazy(() => import("./RichTextEditor/index.jsx"));
+const FileUpload = lazy(() => import("./FileUpload/index.jsx"));
 
 export const demos = [
   {
@@ -58,5 +60,17 @@ export const demos = [
     title: "demos.dragSort.title",
     description: "demos.dragSort.description",
     component: DragSort,
+  },
+  {
+    path: "RichTextEditor",
+    title: "demos.RichTextEditor.title",
+    description: "demos.RichTextEditor.description",
+    component: RichTextEditor,
+  },
+  {
+    path: "file-upload",
+    title: "demos.fileUpload.title",
+    description: "demos.fileUpload.description",
+    component: FileUpload,
   },
 ];

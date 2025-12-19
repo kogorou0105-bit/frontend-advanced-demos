@@ -54,6 +54,16 @@ const resources = {
           description:
             "Implementation based on HTML5 Drag & Drop API, handling real-time array reordering without third-party libraries.",
         },
+        RichTextEditor: {
+          title: "Native Rich Text Editor",
+          description:
+            "A lightweight editor built from scratch using contentEditable API. Features include block formatting, custom code block logic (handling Enter/Shift+Enter), and HTML source preview.",
+        },
+        fileUpload: {
+          title: "Large File Upload & Preview",
+          description:
+            "Implements file slicing (Chunking), local Blob URL preview, and simulated resumable upload progress.",
+        },
       },
     },
   },
@@ -106,6 +116,16 @@ const resources = {
           title: "原生拖拽排序",
           description:
             "基于 HTML5 Drag & Drop API 实现，处理 onDragEnter 实时交换数组顺序，无第三方库依赖。",
+        },
+        RichTextEditor: {
+          title: "原生富文本编辑器",
+          description:
+            "基于 contentEditable 和 execCommand API 手写的轻量级编辑器。解决了光标状态同步、代码块换行逻辑劫持等原生痛点，并支持 HTML 源码格式化预览。",
+        },
+        fileUpload: {
+          title: "大文件切片上传与预览",
+          description:
+            "演示文件切片(Chunking)原理，使用 Blob URL 实现秒开预览，并模拟断点续传与并发进度控制。",
         },
       },
     },

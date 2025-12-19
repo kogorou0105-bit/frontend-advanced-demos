@@ -12,3 +12,38 @@
     @apply bg-slate-900 text-gray-100;
   }
 }
+
+/* src/index.css */
+
+@layer components {
+  .rich-editor-content {
+    /* 基础文字样式 */
+    @apply text-gray-800 leading-relaxed;
+  }
+
+  /* 列表样式优化 */
+  .rich-editor-content ul {
+    @apply list-disc list-outside ml-5 mb-4;
+  }
+  .rich-editor-content ol {
+    @apply list-decimal list-outside ml-5 mb-4;
+  }
+  .rich-editor-content li {
+    @apply pl-1 marker:text-gray-400;
+  }
+
+  /* * 代码块美化 (仿 IDE 风格)
+   * 使用 :where() 降低优先级，方便后续覆盖
+   */
+  .rich-editor-content pre {
+    @apply bg-[#1e1e1e] text-[#d4d4d4] p-4 rounded-lg my-4 overflow-x-auto border border-gray-700 font-mono text-sm shadow-sm;
+    /* 保持代码原本的换行和空格 */
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  /* 标题样式 */
+  .rich-editor-content h2 {
+    @apply text-2xl font-bold border-b border-gray-200 pb-2 mb-4 mt-6 text-gray-900;
+  }
+}

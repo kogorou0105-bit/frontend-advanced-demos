@@ -67,9 +67,9 @@ const SCROLL_MODES = {
     icon: <Zap size={16} />,
   },
 };
+const listData = generateData(TOTAL_COUNT);
 
 export default function VariableList() {
-  const [listData] = useState(() => generateData(TOTAL_COUNT));
   const containerRef = useRef(null);
 
   // 状态管理
@@ -84,6 +84,7 @@ export default function VariableList() {
   });
 
   const [scrollTop, setScrollTop] = useState(0);
+
   const [currentMode, setCurrentMode] = useState(SCROLL_MODES.SMART.id);
   const [jumpIndex, setJumpIndex] = useState("");
   const [isBlurring, setIsBlurring] = useState(false);
@@ -100,10 +101,10 @@ export default function VariableList() {
     while (start <= end) {
       const mid = Math.floor((start + end) / 2);
       const midVal = positions[mid].bottom;
-
       if (midVal === scrollTop) return mid + 1;
-      else if (midVal < scrollTop) start = mid + 1;
-      else {
+      else if (midVal < scrollTop) {
+        start = mid + 1;
+      } else {
         if (tempIndex === -1 || tempIndex > mid) tempIndex = mid;
         end = mid - 1;
       }

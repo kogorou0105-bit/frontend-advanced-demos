@@ -28,7 +28,7 @@ const DemoLayout = ({ title, children }) => {
         </div>
       </header>
 
-      <main className="flex-1 p-4 max-w-4xl mx-auto w-full dark:text-gray-200">
+      <main className="flex-1 p-4 mx-auto w-full dark:text-gray-200">
         {children}
       </main>
     </div>
